@@ -1,0 +1,99 @@
+# LAN Video Conferencing Application Configuration
+# ================================================
+
+server:
+  # Network binding configuration
+  host: "127.0.0.1"           # Server IP to connect to (for clients)
+  bind_host: "0.0.0.0"        # Interface to bind (0.0.0.0 = all interfaces)
+  
+  # Port configuration
+  control_tcp_port: 5000      # TCP port for control/signaling
+  file_tcp_port: 5001         # TCP port for file transfer
+  screen_tcp_port: 5002       # TCP port for screen sharing
+  
+  # Storage
+  upload_dir: "uploads"       # Directory for uploaded files
+  recordings_dir: "recordings" # Directory for meeting recordings
+  
+  # Meeting settings
+  max_participants: 50        # Maximum participants per meeting
+  enable_waiting_room: false  # Enable waiting room by default
+  require_password: false     # Require password to join
+
+media:
+  # RTP/UDP ports for real-time media
+  video_rtp_port: 5004        # UDP port for video RTP
+  audio_rtp_port: 5006        # UDP port for audio RTP
+  
+  # Local ports for client (will be randomized if in use)
+  local_video_port: 6004
+  local_audio_port: 6006
+  
+  # Video quality presets
+  video_quality: "medium"     # low, medium, high
+  video_presets:
+    low:
+      width: 320
+      height: 240
+      fps: 10
+      bitrate: 200000
+    medium:
+      width: 640
+      height: 480
+      fps: 15
+      bitrate: 500000
+    high:
+      width: 1280
+      height: 720
+      fps: 30
+      bitrate: 1500000
+  
+  # Audio settings
+  audio_sample_rate: 16000
+  audio_channels: 1
+  audio_chunk_size: 960
+
+devices:
+  # Device indices (-1 = default/auto-detect)
+  video_device_index: 0
+  audio_input_device_index: -1
+  audio_output_device_index: -1
+
+features:
+  # Feature toggles
+  enable_reactions: true
+  enable_raise_hand: true
+  enable_recording: true
+  enable_virtual_background: true
+  enable_noise_suppression: true
+  enable_chat: true
+  enable_file_sharing: true
+  enable_screen_sharing: true
+  enable_private_messages: true
+
+ui:
+  # Theme settings
+  theme: "dark"               # dark, light
+  
+  # Window settings
+  default_width: 1600
+  default_height: 900
+  
+  # Notification sounds
+  enable_sounds: true
+  
+  # Keyboard shortcuts (can be customized)
+  shortcuts:
+    toggle_mic: "M"
+    toggle_camera: "V"
+    toggle_screen: "S"
+    raise_hand: "H"
+    toggle_chat: "C"
+    toggle_fullscreen: "F11"
+    leave_meeting: "Ctrl+Q"
+
+virtual_background:
+  # Virtual background settings
+  blur_strength: 21           # Gaussian blur kernel size (odd number)
+  custom_backgrounds_dir: "backgrounds"  # Directory for custom backgrounds
+  default_background: null    # null = disabled, or path to image

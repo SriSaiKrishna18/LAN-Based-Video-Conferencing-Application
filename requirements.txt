@@ -1,0 +1,27 @@
+# LAN Video Conferencing Application - Dependencies
+# =================================================
+# Install with: pip install -r requirements.txt
+
+# Core Framework
+PyQt6>=6.4.0
+
+# Media Processing
+numpy>=1.21.0
+opencv-python>=4.5.0
+av>=10.0.0
+pyaudio>=0.2.12
+
+# Screen Capture
+mss>=7.0.0
+
+# Configuration
+PyYAML>=6.0
+
+# Audio Processing (noise suppression)
+scipy>=1.9.0
+
+# Optional: Better noise suppression
+# noisereduce>=2.0.0
+
+# Optional: Better person segmentation for virtual backgrounds
+# mediapipe>=0.10.0
